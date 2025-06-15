@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SAE2._01.Connexion"
+             xmlns:local="clr-namespace:SAE2._01"
+             Style="{StaticResource MyTrigger}"       
+             >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:Dictionary1 x:Key="Dictionary1"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout
+                Spacing="25"
+                Padding="30,0"
+                VerticalOptions="Center"
+                Resources="{StaticResource Dictionary1}">
+                
+                <Entry Placeholder="Email" Style= "{StaticResource Ent }"/>
+                <Entry Placeholder="Mot de passe" Style= "{StaticResource Ent }"/>
+
+                <Button
+                    Text="Valider"
+                    Clicked="Hyperlink_MainPage"
+                    MaximumWidthRequest="100"
+                    BackgroundColor="Green"
+                    />
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:scg="clr-namespace:System.Collections.Generic;assembly=netstandard"
+             x:Class="SAE2._01.Champions.Ryze"
+             xmlns:local="clr-namespace:SAE2._01"
+             x:Name="PageDetaille"
+             Style="{StaticResource MyTrigger}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:Dictionary1 x:Key="Dictionary1"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+        <Grid RowDefinitions="40, *">
+        <local:CustomHeader HeightRequest="40" VerticalOptions="Start" Padding="10, 0"/>
+
+
+                    <VerticalStackLayout Resources="{StaticResource Dictionary1}" Grid.Row="1">
+                        <Grid Resources="{StaticResource Dictionary1}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="175"/>
+                        <RowDefinition Height="150"/>
+                        <RowDefinition Height="150"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1000"/>
+                                <ColumnDefinition Width="1000"/>
+                            </Grid.ColumnDefinitions>
+                            <StackLayout Grid.Column="0" Grid.Row="0">
+                                <Label 
+                                    FontSize="20"
+                                    FontAttributes="Bold"
+                            Text="{Binding SelectedCharacter.Name}"
+                            Style="{StaticResource Lab}"/>
+                                <Image 
+                            Source="{Binding SelectedCharacter.ImageUrl}"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Start"
+                            Style="{StaticResource ImPageDuChamp}"
+                />
+                            </StackLayout>
+                            <StackLayout Grid.Column="0" Grid.Row="4">
+                                <Image 
+                                 Source="{Binding SelectedCharacter.Role1}"
+                                Style="{StaticResource Rôle}"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Start"
+                                Margin="190,10,0,0"
+                                    
+                                />
+                            </StackLayout>
+                            <StackLayout Grid.Column="0" Grid.Row="4">
+                                <Image 
+                                 Source="{Binding SelectedCharacter.Role2}"
+                                Style="{StaticResource Rôle}"
+                            VerticalOptions="Center"
+                                Margin="200,10,0,0"
+                            />
+
+                            </StackLayout>
+                    <StackLayout Grid.Column="0" Grid.Row="4" VerticalOptions="Center">
+                        <Label
+                            Text="Histoire"
+                            FontSize="20"
+                            Style="{StaticResource Lab}"
+                            FontAttributes="Bold"
+                            />
+                        <Frame HasShadow="False"
+                               Padding="0"
+                               CornerRadius="0"
+                               BackgroundColor="Transparent"
+                               Margin="0"
+                               WidthRequest="750">
+                            <ScrollView>
+                                <Label Text="{Binding SelectedCharacter.Histoire}"
+                                   Style="{StaticResource Lab}"
+                                   LineBreakMode="WordWrap"
+                                   Grid.RowSpan="3"
+                                   MaxLines="10"
+                                   MaximumWidthRequest="800"
+                                   VerticalOptions="StartAndExpand" />
+                            </ScrollView>
+                        </Frame>
+
+                    </StackLayout>
+                            <HorizontalStackLayout Grid.Column="3" Grid.Row="0">
+                                <Button
+                            Text="Equipements"
+                            Clicked="Hyperlink_Equipement"
+                            WidthRequest="150"
+                            FontSize="12"
+                            HeightRequest="80"
+                            Style="{StaticResource But}"
+                        Background="white"
+                        VerticalOptions="Start"
+                        HorizontalOptions="Start"
+                            />
+                        <Button
+                            Text="Modifier"
+                            Clicked="ModifierButton_Clicked"
+                            WidthRequest="130"
+                            FontSize="12"
+                            HeightRequest="80"
+                            Style="{StaticResource But}"
+                        Background="white"
+                        VerticalOptions="Start"
+                        HorizontalOptions="Start"
+                            />
+                    </HorizontalStackLayout>
+                    <StackLayout
+                        Grid.Column="3" Grid.Row="1">
+                        <Button
+                            Text="Supprimer"
+                            Clicked="Suppresion_Clicked"
+                            WidthRequest="140"
+                            FontSize="12"
+                            HeightRequest="80"
+                            Margin="20, 40, 0, 0"
+                            Style="{StaticResource But}"
+                        Background="white"
+                        VerticalOptions="Start"
+                        HorizontalOptions="Start"
+                            />
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="1" Grid.Row="1">
+                        <Label 
+                            Text="Liste Des compétences"
+                            Grid.Row="0"
+                            Padding="10"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            Style="{StaticResource Lab}"
+                        />
+
+                    </StackLayout>
+                    <ListView Grid.Column="1" Grid.Row="2" Grid.RowSpan="3"
+          ItemsSource="{Binding SelectedCharacter.dic.Values}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout >
+                                        <Label Text="{Binding Nom}"
+                                               VerticalOptions="Start"
+                                               Style="{StaticResource Lab}"
+                                               FontAttributes="Bold"
+                                               HeightRequest="70"
+                                               MaximumWidthRequest="800"
+                                            />
+                                        <Label Text="{Binding Description}"
+                           Style="{StaticResource Lab}"
+                           HorizontalOptions="Start"
+                           VerticalOptions="Start"
+                           MaximumWidthRequest="800"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                </Grid>
+                    </VerticalStackLayout>
+
+    </Grid>
+    </ScrollView>
+</ContentPage>

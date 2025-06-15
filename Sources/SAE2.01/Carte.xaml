@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SAE2._01.cartes"
+             xmlns:local="clr-namespace:SAE2._01"
+             Title="Carte"
+             BackgroundImageSource="carte_wallpaper.jpg"
+             Style="{StaticResource MyTrigger}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:Dictionary1 x:Key="Dictionary1"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="40, *">
+        <local:CustomHeader HeightRequest="40" VerticalOptions="Start" Padding="10, 0"/>
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout
+                Spacing="25"
+                Padding="30,0"
+                VerticalOptions="Center"
+                Resources="{StaticResource Dictionary1}">
+
+
+                <Button
+                    Text="Faille de l'invocateur"
+                    BackgroundColor="{StaticResource PrimaryColor}"     
+                    SemanticProperties.Hint="Sends you to the champion page"
+                    Clicked="Hyperlink_Carte_faille"
+                    Style="{StaticResource But}"
+                    />
+
+                <Button
+                    Text="Abîme hurlant"
+                    SemanticProperties.Hint="Sends you to the champion page" 
+                    BackgroundColor="{StaticResource SecondaryColor}"
+                    Clicked="Hyperlink_Carte_abime"
+                    Style="{StaticResource But}"
+                    />
+
+                <Button
+                    Text="Carte du monde"
+                    SemanticProperties.Hint="Sends you to the champion page" 
+                    BackgroundColor="{StaticResource AccentColor}"
+                    Clicked="Hyperlink_Carte_du_monde"
+                    Style="{StaticResource But}"
+                    />
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>

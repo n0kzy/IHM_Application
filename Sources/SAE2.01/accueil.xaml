@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SAE2._01"
+             x:Class="SAE2._01.Accueil"
+             Style="{StaticResource MyTrigger}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:Dictionary1 x:Key="Dictionary1"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <ScrollView Grid.Row="1">
+        <VerticalStackLayout
+                Spacing="25"
+                Padding="30,0"
+                VerticalOptions="Center"
+                Resources="{StaticResource Dictionary1}">
+
+            <Image
+                    Source="gromp.webp"
+                    Style="{StaticResource Im}" />
+
+            <Label
+                    Text="infoGromp"
+                    SemanticProperties.HeadingLevel="Level1"
+                    FontSize="32"
+                    HorizontalOptions="Center"
+                    Style="{StaticResource Lab}"/>
+
+            <Button
+                    Text="Se connecter"
+                    Clicked="Hyperlink_ConnexionPage"
+                    BackgroundColor="{StaticResource PrimaryColor}"     
+                    Style="{StaticResource But}"
+                    />
+
+            <Button
+                    Text="Créer un compte"
+                    Clicked="Hyperlink_CreationCompte"
+                    Style="{StaticResource But}"
+                    />
+
+            <Button
+                    Text="ignorer"
+                    Clicked="Hyperlink_MainPage"
+                    MaximumWidthRequest="100"
+                    BackgroundColor="White"
+                    />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SAE2._01.Champions.Ryze_equipement"
+             xmlns:local="clr-namespace:SAE2._01"
+             Title="Equipement_Ryze"
+             Style="{StaticResource MyTrigger}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:Dictionary1 x:Key="Dictionary1"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="40, *">
+        <local:CustomHeader HeightRequest="40" VerticalOptions="Start" Padding="10, 0"/>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout Resources="{StaticResource Dictionary1}">
+                <Grid Resources="{StaticResource Dictionary1}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="150"/>
+                        <RowDefinition Height="150"/>
+                        <RowDefinition Height="150"/>
+                        <RowDefinition Height="150"/>
+                        <RowDefinition Height="150"/>
+                        <RowDefinition Height="150"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="450"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="150"/>
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Grid.Column="1" Grid.Row="0">
+                        <Image 
+                                Source="gantelet_givrant.png"
+                                Style="{StaticResource ImEquipement}"
+                                />
+                    </StackLayout>
+                    <StackLayout Grid.Column="1" Grid.Row="1">
+                        <Image 
+                                Source="cape_solaire.jpg"
+                                Style="{StaticResource ImEquipement}"
+                                />
+                    </StackLayout>
+                    <StackLayout Grid.Column="1" Grid.Row="2">
+                        <Image 
+                                Source="echo_de_luden.png"
+                                Style="{StaticResource ImEquipement}"
+                                />
+                    </StackLayout>
+                    <StackLayout Grid.Column="2" Grid.Row="0">
+                        <Image 
+                                Source="chemtank.png"
+                                Style="{StaticResource ImEquipement}"
+                                />
+                    </StackLayout>
+                    <StackLayout Grid.Column="2" Grid.Row="1">
+                        <Image 
+                                Source="hextech.png"
+                                Style="{StaticResource ImEquipement}"
+                                />
+                    </StackLayout>
+                    <StackLayout Grid.Column="2" Grid.Row="2">
+                        <Image 
+                                Source="prowler.png"
+                                Style="{StaticResource ImEquipement}"
+                                />
+                    </StackLayout>
+                    <StackLayout Grid.Column="3" Grid.Row="0">
+                        <Image 
+                                Source="eclipse.png"
+                                Style="{StaticResource ImEquipement}"
+                                />
+                    </StackLayout>
+                    <StackLayout Grid.Column="3" Grid.Row="1">
+                        <Image 
+                                Source="everfrost.png"
+                                Style="{StaticResource ImEquipement}"
+                                />
+                    </StackLayout>
+                    <StackLayout Grid.Column="3" Grid.Row="2">
+                        <Image 
+                                Source="riftmaker.png"
+                                Style="{StaticResource ImEquipement}"
+                                />
+                    </StackLayout>
+
+                </Grid>
+            </VerticalStackLayout>
+
+
+        </ScrollView>
+    </Grid>
+</ContentPage>
+        

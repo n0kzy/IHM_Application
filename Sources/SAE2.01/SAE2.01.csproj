@@ -1,0 +1,202 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net7.0-android</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('ios'))">$(TargetFrameworks);net7.0-ios</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('maccatalyst'))">$(TargetFrameworks);net7.0-maccatalyst</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
+		<OutputType>Exe</OutputType>
+		<RootNamespace>SAE2._01</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<!-- Display name -->
+		<ApplicationTitle>SAE2.01</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.sae2._01</ApplicationId>
+		<ApplicationIdGuid>cf431e8f-6b8b-491a-a178-6e07b79a3fee</ApplicationIdGuid>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+		<Configurations>Debug;Release;Test</Configurations>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Remove="Page1.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Images\aatrox1.jpg" />
+	  <None Remove="Resources\Images\ahri1.jpg" />
+	  <None Remove="Resources\Images\akali1.jpg" />
+	  <None Remove="Resources\Images\alistar1.jpg" />
+	  <None Remove="Resources\Images\annie.jpg" />
+	  <None Remove="Resources\Images\bot.png" />
+	  <None Remove="Resources\Images\cape_solaire.jpg" />
+	  <None Remove="Resources\Images\carte_du_monde.jpg" />
+	  <None Remove="Resources\Images\chemtank.png" />
+	  <None Remove="Resources\Images\draktharr.png" />
+	  <None Remove="Resources\Images\echo_de_luden.png" />
+	  <None Remove="Resources\Images\eclipse.png" />
+	  <None Remove="Resources\Images\everfrost.png" />
+	  <None Remove="Resources\Images\faillebackground.png" />
+	  <None Remove="Resources\Images\gantelet_givrant.png" />
+	  <None Remove="Resources\Images\gromp.webp" />
+	  <None Remove="Resources\Images\hextech.png" />
+	  <None Remove="Resources\Images\jungle.png" />
+	  <None Remove="Resources\Images\kayle.jpg" />
+	  <None Remove="Resources\Images\liandry.png" />
+	  <None Remove="Resources\Images\mid.png" />
+	  <None Remove="Resources\Images\moissonneuse_de_nuit.png" />
+	  <None Remove="Resources\Images\profil.jpg" />
+	  <None Remove="Resources\Images\prowler.png" />
+	  <None Remove="Resources\Images\riftmaker.png" />
+	  <None Remove="Resources\Images\ryze.jpg" />
+	  <None Remove="Resources\Images\support.png" />
+	  <None Remove="Resources\Images\top.png" />
+	  <None Remove="Resources\Images\yi.jpg" />
+	  <None Remove="Resources\Raw\championFull.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Classes\Classes.csproj" />
+	  <ProjectReference Include="..\Persistance\stub.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="CarteFaille.xaml.cs">
+	    <DependentUpon>CarteFaille.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="CarteAbime.xaml.cs">
+	    <DependentUpon>CarteAbime.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="ChampionPage.xaml.cs">
+	    <DependentUpon>ChampionPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="PageModifEtAjout.xaml.cs">
+	    <DependentUpon>PageModifEtAjout.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Ryze_equipement.xaml.cs">
+	    <DependentUpon>Ryze_equipement.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="PageDetaille.xaml.cs">
+	    <DependentUpon>PageDetaille.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="CustomHeader.xaml.cs">
+	    <DependentUpon>CustomHeader.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Dictionary.xaml.cs">
+	    <DependentUpon>Dictionary.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Carte.xaml.cs">
+	    <DependentUpon>Carte.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Mode_de_jeu.xaml.cs">
+	    <DependentUpon>Mode_de_jeu.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="CarteMonde.xaml.cs">
+	    <DependentUpon>CarteMonde.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="mode_Couramment_Jouable.xaml.cs">
+	    <DependentUpon>mode_Couramment_Jouable.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="accueil.xaml.cs">
+	    <DependentUpon>accueil.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Page_de_connexion.xaml.cs">
+	    <DependentUpon>Page_de_connexion.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="page_creation_de_compte.xaml.cs">
+	    <DependentUpon>page_creation_de_compte.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="profil.xaml.cs">
+	    <DependentUpon>profil.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="CarteFaille.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="CarteAbime.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="ChampionPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="PageModifEtAjout.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Ryze_equipement.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="PageDetaille.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="CustomHeader.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Dictionary.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Carte.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Mode_de_jeu.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="CarteMonde.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="mode_Couramment_Jouable.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="accueil.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Page_de_connexion.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="page_creation_de_compte.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="profil.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Champions\" />
+	</ItemGroup>
+
+</Project>

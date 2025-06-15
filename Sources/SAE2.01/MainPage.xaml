@@ -1,0 +1,84 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SAE2._01"
+             x:Class="SAE2._01.MainPage"
+             BackgroundImageSource="faillebackground.png">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:Dictionary1 x:Key="Dictionary1"/>
+            <DataTemplate x:Key="LocalDataTemplate">
+                <StackLayout>
+                    <Label Text="Nom du champion" />
+                    <Image Source="ryze.jpg" />
+                    <Button Text="Sélectionner" />
+                </StackLayout>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="40, *">
+        <local:CustomHeader HeightRequest="40" VerticalOptions="Start" Padding="10, 0"/>
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout
+                Spacing="25"
+                Padding="30,0"
+                VerticalOptions="Center"
+                Resources="{StaticResource Dictionary1}">
+
+                <Image
+                    Source="gromp.webp"
+                    SemanticProperties.Description="Voted most cancerous game in history!"
+                    Style="{StaticResource Im}" />
+
+                <Label
+                    Text="infoGromp"
+                    SemanticProperties.HeadingLevel="Level1"
+                    FontSize="32"
+                    HorizontalOptions="Center"
+                    Style="{StaticResource Lab}"/>
+                <Label
+                    Text="Choissisez votre information"
+                    SemanticProperties.HeadingLevel="Level2"
+                    SemanticProperties.Description="Welcome to dot net Multi platform App U I"                 
+                    Style="{StaticResource Lab}"
+                    />
+
+                <Button
+                    x:Name="Champion"
+                    Text="Champion"
+                    BackgroundColor="{StaticResource PrimaryColor}"     
+                    SemanticProperties.Hint="Sends you to the champion page"
+                    Clicked="Hyperlink_Champ"
+                    Style="{StaticResource But}"
+                    />
+
+                <Button
+                    Text="Carte"
+                    SemanticProperties.Hint="Sends you to the champion page" 
+                    BackgroundColor="{StaticResource SecondaryColor}"
+                    Clicked="Hyperlink_Carte"
+                    Style="{StaticResource But}"
+                    />
+
+                <Button
+                    x:Name="CounterBtn"
+                    Text="Mode de jeu"
+                    SemanticProperties.Hint="Sends you to the champion page" 
+                    BackgroundColor="{StaticResource AccentColor}"
+                    Clicked="Hyperlink_Mode_de_jeu"
+                    Style="{StaticResource But}"
+                    />
+
+                <ContentView>
+                    <ContentView.Content>
+                        <StackLayout>
+                            <Label Text="Patrick Brugiere" Style="{StaticResource Lab}" />
+                        </StackLayout>
+                    </ContentView.Content>
+                </ContentView>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>
