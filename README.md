@@ -12,9 +12,9 @@
 [![Vulnerabilities](https://codefirst.iut.uca.fr/sonar/api/project_badges/measure?project=IHM_Application_Alexandre_BOUVOT-Patrick_BRUGIERE&metric=vulnerabilities)](https://codefirst.iut.uca.fr/sonar/dashboard?id=IHM_Application_Alexandre_BOUVOT-Patrick_BRUGIERE)  
 
  
-# IHM_Application_Alexandre_BOUVOT-Patrick_BRUGIERE
+# IHM_Application_Patrick_BRUGIERE
 
-Welcome on the IHM_Application_Alexandre_BOUVOT-Patrick_BRUGIERE project!  
+Welcome on the IHM_Application_Patrick_BRUGIERE project!  
 
   
 
